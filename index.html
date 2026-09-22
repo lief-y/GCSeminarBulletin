@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CUNY Math Seminars</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>CUNY Mathematics Seminars</h1>
+      <p class="subtitle">
+        Two-week timetable of upcoming seminars.
+        <span id="last-updated"></span>
+      </p>
+      <div class="controls">
+        <input
+          type="search"
+          id="searchBox"
+          placeholder="Search by speaker, title, or seminar…"
+          aria-label="Search seminars"
+        />
+        <label class="toggle">
+          <input type="checkbox" id="hideEmpty" checked />
+          Hide empty days
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="timetable" class="timetable"></div>
+    <div id="noResults" class="no-results" hidden>No seminars match your search.</div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Data source:
+        <a href="https://www.gc.cuny.edu/mathematics/seminars-and-events/seminars" target="_blank" rel="noopener">
+          CUNY Mathematics Seminars Bulletin
+        </a>.
+        Updated automatically via GitHub Actions.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
