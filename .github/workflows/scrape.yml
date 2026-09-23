@@ -1,32 +1,21 @@
 name: Parse CUNY Seminar PDF
 
 on:
-  # Trigger when the bulletin PDF is updated
   push:
     paths:
       - 'data/bulletin.pdf'
       - 'PDF_scraper.py'
       - 'requirements.txt'
       - '.github/workflows/scrape.yml'
-
-  # Weekly refresh (in case the PDF is committed but the parser is unchanged)
   schedule:
-    # Every Monday at 12:00 PM ET (16:00 UTC during EDT, 17:00 UTC during EST)
-    - cron: '0 16 * * 1'
-
-  # Manual trigger from the Actions tab
+    - cron: '0 16 * * 1'   # Mondays 12:00 ET (EDT)
   workflow_dispatch:
-
-# Cancel an in-flight run if a new one starts
-concurrency:
-  group: parse-seminars
-  cancel-in-progress: true
 
 jobs:
   parse:
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # needed to push the updated JSON
+      contents: write
 
     steps:
       - name: Checkout repository
